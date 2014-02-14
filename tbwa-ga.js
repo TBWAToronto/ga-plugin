@@ -21,7 +21,7 @@ tbwa.ga = {
                case ("pageView"): trackElement.addEventListener("click",tbwa.ga.trackPageView(trackElement));
                case ("virtualPage"): trackElement.addEventListener("click",tbwa.ga.trackVirtualPage(trackElement));
                case ("social"): trackElement.addEventListener("click",tbwa.ga.trackSocial(trackElement));
-               default: console.log("unidentified ga-event")
+               default: console.log("unidentified ga-event");
             }
 
          }
@@ -40,16 +40,16 @@ tbwa.ga = {
       var category = element.getAttribute("data-category"); // can be pdf, video, mp3 etc.
       var action = element.getAttribute("data-action"); // can be download, play, pause, volume-up, mute, etc.
       var label = element.getAttribute("data-label"); // label (usually filename, video title, etc)
-      var path = element.getAttribute("data-label"); // pseudo-permalink (/downloads/en/sample.pdf)
+      var path = element.getAttribute("data-permalink"); // pseudo-permalink (/downloads/en/sample.pdf)
       ga('send', 'event', category, action, target, path);
 
    },
    trackSocial: function (element) {
 
       //This tracks social channel actions like Facebook likes, page follows, tweets, pins etc.
-      var network = element.getAttribute("data-category"); // Facebook, Twitter, Pinterest etc.
+      var network = element.getAttribute("data-network"); // Facebook, Twitter, Pinterest etc.
       var target = element.getAttribute("data-label"); // label
-      var path = element.getAttribute("data-value"); // pseudo-permalink (/facebook/fanpage/like)
+      var path = element.getAttribute("data-permalink"); // pseudo-permalink (/facebook/fanpage/like)
       var action = element.getAttribute("data-action"); // Like, Follow, Share, Tweet, Pin, etc.
       ga('send', 'event', network, action, target, path);
 
@@ -57,4 +57,4 @@ tbwa.ga = {
 
 }
 
-document.addEventListener("DOMContentLoaded", tbwaga.init);
+document.addEventListener("DOMContentLoaded, DOMSubtreeModified", tbwaga.init);
