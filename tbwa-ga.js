@@ -18,9 +18,9 @@ tbwa.ga = {
          var trackElement = trackable[i];
          if (trackElement.hasAttribute("data-ga-event")) {
             switch (trackElement.getAttribute("data-ga-event")) {
-               case ("pageView"): tbwa.ga.trackPageView(trackElement);
-               case ("virtualPage"): tbwa.ga.trackVirtualPage(trackElement);
-               case ("social"): tbwa.ga.trackSocial(trackElement);
+               case ("pageView"): trackElement.addEventListener("click",tbwa.ga.trackPageView(trackElement));
+               case ("virtualPage"): trackElement.addEventListener("click",tbwa.ga.trackVirtualPage(trackElement));
+               case ("social"): trackElement.addEventListener("click",tbwa.ga.trackSocial(trackElement));
                default: console.log("unidentified ga-event")
             }
 
